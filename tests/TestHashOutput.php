@@ -1,6 +1,5 @@
 <?php
 
-//use Pichkrement\Tokenauth;
 use Pichkrement\Tokenauth\SimpleHashGenerator as Hash;
 
 class TestHashOutput extends PHPUnit_Framework_TestCase {
@@ -47,5 +46,16 @@ class TestHashOutput extends PHPUnit_Framework_TestCase {
 			//there should me more than one occurence of each character
 			$this->assertGreaterThan(1, $val);
 		}
+	}
+
+	/**
+	 * test Umlauts
+	 *
+	 * test Hash in combination with german umlauts
+	 */
+	public function testUmlauts(){
+		$token = Hash::getToken(1, "ÜÖÄüäö");
+
+		$this->assertContains($token, 'ÜÖÄüäö');
 	}
 }
