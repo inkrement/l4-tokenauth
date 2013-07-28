@@ -1,8 +1,10 @@
-<?php namespace Pichkrement\Tokenauth;
+<?php
+
+namespace Pichkrement\Tokenauth;
 
 class SimpleHashGenerator implements HashGeneratorInterface {
 
-	function getToken($length=null, $alpha = null){
+	static function getToken($length=null, $alpha = null){
 		if(is_null($length)){
 			//load default length from config
 			//TODO
@@ -13,7 +15,7 @@ class SimpleHashGenerator implements HashGeneratorInterface {
 			//TODO
 		}
 
-		$ret;
+		$ret = "";
 
 		for($i=0; $i < $length; $i++){
 			$next = $alpha{rand(0, strlen($alpha) - 1)};
