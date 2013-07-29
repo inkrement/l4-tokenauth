@@ -2,6 +2,8 @@
 
 return array(
 
-	'token_length' => 4,
+	'length' => 4,
+	'alphabet' => "QWERTZUIOPASDFGHJKLYXCVBNMqwertzuiopasdfghjklyxcvbnm",
+	'urlencode' => true
 
 	);

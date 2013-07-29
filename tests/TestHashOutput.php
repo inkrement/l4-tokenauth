@@ -54,8 +54,19 @@ class TestHashOutput extends PHPUnit_Framework_TestCase {
 	 * test Hash in combination with german umlauts
 	 */
 	public function testUmlauts(){
-		$token = Hash::getToken(1, "ÜÖÄüäö");
+		$token = Hash::getToken(1, "ÜÖÄüäö", false);
 
 		$this->assertContains($token, 'ÜÖÄüäö');
+	}
+
+
+	/**
+	 * testUrl
+	 *
+	 */
+	public function testUrl(){
+		$token = Hash::getToken(40, "#*?/\\+=öäüÖÜÄß", true);
+
+		$this->assertNotContains($token, '#*?/\\+=öäüÖÜÄß');
 	}
 }
