@@ -4,6 +4,10 @@
 
 This is a simple Token Authentication service for Laravel 4. You can also use it in combination with other php5 frameworks. Feel free to modify and extend it's functionality.
 
+## Requirements
+
+ * PHP 5.4
+
 ## Installation
 
 Just add it as dependency within your *composer.json* file.
