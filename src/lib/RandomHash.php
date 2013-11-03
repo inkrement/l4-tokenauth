@@ -9,15 +9,6 @@ class RandomHash {
 	private $length;
 	private $alpha;
 
-	public function __construct(){
-		//TODO $app->make('config')->get('tokenauth');
-	}
-
-	public function __construct(Config $config){
-		$this->legth = $config->get('length');
-		$this->alpha = $config->get('alpha');
-	}
-
 	public function __construct($legth, $alpha){
 		$this->legth = $legth;
 		$this->alpha = $alpha;
