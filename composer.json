@@ -21,6 +21,7 @@
     },
     "autoload": {
         "classmap": [
+            "src/lib",
             "src/config",
             "src/migrations",
             "tests"
