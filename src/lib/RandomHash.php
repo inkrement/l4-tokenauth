@@ -1,8 +1,8 @@
 <?php
 
-namespace \Pichkrement\Tokenauth\Lib;
+namespace Pichkrement\Tokenauth\Lib;
 
-use Illuminate\Support\Facades\Config as Config;
+use \Illuminate\Support\Facades\Config as Config;
 
 class RandomHash {
 
