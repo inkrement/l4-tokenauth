@@ -9,8 +9,8 @@ class RandomHash {
 	private $length;
 	private $alpha;
 
-	public function __construct($legth, $alpha){
-		$this->legth = $legth;
+	public function __construct($length, $alpha){
+		$this->length = $length;
 		$this->alpha = $alpha;
 	}
 
