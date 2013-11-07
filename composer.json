@@ -24,6 +24,7 @@
             "src/lib",
             "src/config",
             "src/migrations",
+            "src/controllers",
             "tests"
         ],
         "psr-0": {
