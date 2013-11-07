@@ -2,7 +2,7 @@
 
 namespace Pichkrement\Tokenauth;
 
-class AuthController extends \Illuminate\Routing\Controllers\BaseController {
+class AuthController extends \BaseController {
 
 	public function login(){
 		return "login controller - yay!";
