@@ -14,7 +14,11 @@ class RandomHash {
 		$this->alpha = $alpha;
 	}
 
-
+	/**
+	 * getRandomToken
+	 *
+	 * @return string random token
+	 */
 	public function getRandomToken(){
 		$token = '';
 		$max = strlen($this->alpha) - 1;
