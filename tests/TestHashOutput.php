@@ -1,6 +1,6 @@
 <?php
 
-use Pichkrement\Tokenauth\SimpleHashGenerator as Hash;
+use Pichkrement\Tokenauth\Lib\RandomHash;
 
 class TestHashOutput extends PHPUnit_Framework_TestCase {
 
@@ -11,7 +11,9 @@ class TestHashOutput extends PHPUnit_Framework_TestCase {
 	 */
 	public function testLength(){
 
-		$token = Hash::getToken(10, "a");
+		$gen = new RandomHash(10, 'a');
+
+		$token = $gen->getRandomToken();
 
 		$this->assertEquals(strlen($token), 10);
 	}
@@ -23,7 +25,9 @@ class TestHashOutput extends PHPUnit_Framework_TestCase {
 	 */
 	public function testMonoAlphabet(){
 
-		$token = Hash::getToken(10, "a");
+		$gen = new RandomHash(10, 'a');
+
+		$token = $gen->getRandomToken();
 
 		$this->assertEquals($token, "aaaaaaaaaa");
 	}
@@ -37,7 +41,10 @@ class TestHashOutput extends PHPUnit_Framework_TestCase {
 	 * even if the code is correct [but it's very unlikely]
 	 */
 	public function testDistribution(){
-		$token = Hash::getToken(1000, "ab");
+
+		$gen = new RandomHash(1000, 'aa');
+
+		$token = $gen->getRandomToken();
 
 		/* calculate number of occurences */
 
@@ -54,7 +61,9 @@ class TestHashOutput extends PHPUnit_Framework_TestCase {
 	 * test Hash in combination with german umlauts
 	 */
 	public function testUmlauts(){
-		$token = Hash::getToken(1, "ÜÖÄüäö", false);
+
+		$gen = new RandomHash(1, 'ÜÖÄüäö');
+		$token = $gen->getRandomToken();
 
 		$this->assertContains($token, 'ÜÖÄüäö');
 	}
@@ -65,7 +74,8 @@ class TestHashOutput extends PHPUnit_Framework_TestCase {
 	 *
 	 */
 	public function testUrl(){
-		$token = Hash::getToken(40, "#*?/\\+=öäüÖÜÄß", true);
+		$gen = new RandomHash(40, '#*?/\\+=öäüÖÜÄß');
+		$token = $gen->getRandomToken();
 
 		$this->assertNotContains($token, '#*?/\\+=öäüÖÜÄß');
 	}
