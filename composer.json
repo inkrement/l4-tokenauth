@@ -23,7 +23,6 @@
         "classmap": [
             "src/lib",
             "src/config",
-            "src/migrations",
             "src/controllers",
             "tests"
         ],
